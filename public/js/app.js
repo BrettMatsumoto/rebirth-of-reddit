@@ -1,8 +1,5 @@
 'use strict';
 
-const smallScreen = window.matchMedia('(min-width: 320px) and (max-divice-width)');
-const iPadScreen = window.matchMedia('(min-width: 1024px)');
-
 if (window.matchMedia('(min-width: 320px)').matches) {
   const rSlashJavaScript = new XMLHttpRequest();
   rSlashJavaScript.addEventListener('load', reqListenerJavaScript);
@@ -26,9 +23,7 @@ if (window.matchMedia('(min-width: 320px)').matches) {
     }
   }
 }
-if (window.matchMedia('(min-width: 768px)').matches){
-
+if (window.matchMedia('(min-width: 768px)').matches) {
 }
-if (window.matchMedia('(min-width: 1224px').matches){
-  
+if (window.matchMedia('(min-width: 1224px').matches) {
 }
