@@ -7,7 +7,6 @@ for (let i = 0; i < navigationButtons.length; i++) {
 
 function swapSelected() {
   let selected = this.innerHTML;
-  console.log(selected);
   const contentBox = document.getElementById('content');
 
   if (selected === 'r/JavaScript') {
@@ -30,6 +29,14 @@ function swapSelected() {
         let jSContentP = document.createElement('p');
         jSContentP.innerHTML = responseText[i].data.selftext;
         jSTitleDiv.appendChild(jSContentP);
+
+        let jSAuthor = document.createElement('p');
+        jSAuthor.innerHTML = responseText[i].data.author;
+        jSTitleDiv.appendChild(jSAuthor);
+
+        let jSUpvote = document.createElement('span');
+        jSUpvote.innerHTML = 'Upvotes: ' + responseText[i].data.score;
+        jSTitleDiv.appendChild(jSUpvote);
 
         let jSLinks = document.createElement('p');
         jSLinks.innerHTML = responseText[i].data.url;
@@ -57,10 +64,17 @@ function swapSelected() {
         choosingBeggersContent.innerHTML = responseText[i].data.selftext;
         choosingBeggersTitleDiv.appendChild(choosingBeggersContent);
 
-        // let choosingBeggersPictures = document.createElement('img');
-        // choosingBeggersPictures.src = responseText[i].data.thumbnail;
-        // choosingBeggersContent.appendChild(choosingBeggersPictures);
-        // console.log(choosingBeggersPictures);
+        let cBAuthor = document.createElement('p');
+        cBAuthor.innerHTML = responseText[i].data.author;
+        choosingBeggersTitleDiv.appendChild(cBAuthor);
+
+        let cBUpvote = document.createElement('span');
+        cBUpvote.innerHTML = 'Upvotes: ' + responseText[i].data.score;
+        choosingBeggersTitleDiv.appendChild(cBUpvote);
+
+        let choosingBeggersPictures = document.createElement('img');
+        choosingBeggersPictures.src = responseText[i].data.thumbnail;
+        choosingBeggersContent.appendChild(choosingBeggersPictures);
       }
     }
   } else if (selected === 'r/WhatCouldGoWrong') {
@@ -80,11 +94,27 @@ function swapSelected() {
         let contentBox = document.getElementById('content');
         contentBox.appendChild(whatCouldGoWrongTitleDiv);
 
+        let whatCouldGoWrongContent = document.createElement('p');
+        whatCouldGoWrongContent.innerHTML = responseText[i].data.selftext;
+        whatCouldGoWrongTitleDiv.appendChild(whatCouldGoWrongContent);
+
         let whatCouldGoWrongLink = document.createElement('a');
         whatCouldGoWrongLink.href = responseText[i].data.url;
         whatCouldGoWrongLink.innerHTML = responseText[i].data.url;
         whatCouldGoWrongLink.target = '_blank';
-        whatCouldGoWrongTitleDiv.appendChild(whatCouldGoWrongLink);
+        whatCouldGoWrongContent.appendChild(whatCouldGoWrongLink);
+
+        let whatCouldGoWrongAuthor = document.createElement('p');
+        whatCouldGoWrongAuthor.innerHTML = responseText[i].data.author;
+        whatCouldGoWrongContent.appendChild(whatCouldGoWrongAuthor);
+
+        let whatCouldGoWrongDate = document.createElement('span');
+        whatCouldGoWrongDate.innerHTML = 'Upvotes: ' + responseText[i].data.score;
+        whatCouldGoWrongContent.appendChild(whatCouldGoWrongDate);
+
+        let whatCouldGoWrongPictures = document.createElement('img');
+        whatCouldGoWrongPictures.src = responseText[i].data.thumbnail;
+        whatCouldGoWrongLink.appendChild(whatCouldGoWrongPictures);
       }
     }
   } else if (selected === 'RANDOM') {
@@ -119,6 +149,28 @@ function swapSelected() {
         randomTitleDiv.className = 'randomBox';
         let contentBox = document.getElementById('content');
         contentBox.appendChild(randomTitleDiv);
+
+        let randomContent = document.createElement('p');
+        randomContent.innerHTML = responseText[i].data.selftext;
+        randomTitleDiv.appendChild(randomContent);
+
+        let randomLink = document.createElement('a');
+        randomLink.href = responseText[i].data.url;
+        randomLink.innerHTML = responseText[i].data.url;
+        randomLink.target = '_blank';
+        randomContent.appendChild(randomLink);
+
+        let randomAuthor = document.createElement('p');
+        randomAuthor.innerHTML = responseText[i].data.author;
+        randomContent.appendChild(randomAuthor);
+
+        let randomDate = document.createElement('span');
+        randomDate.innerHTML = 'Upvotes: ' + responseText[i].data.score;
+        randomContent.appendChild(randomDate);
+
+        let randomPictures = document.createElement('img');
+        randomPictures.src = responseText[i].data.thumbnail;
+        randomLink.appendChild(randomPictures);
       }
     }
   }
